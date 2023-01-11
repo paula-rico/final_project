@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Listado de productos
+{% endblock %}
+
+{% block content %}
+
+    <h1>Listado de Productos</h1>
+    <h2>Crear nuevo producto </h2> <a href="/product/create-product/" class="btn btn-primary">Crear</a>
+    {% for product in product %}
+
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <p class="card-text">Su precio es ${{product.price}}</p>
+            <h5 class="card-title">{{product.category}}</h5>
+
+           
+            <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+        </div>
+
+
+
+    {% endfor %}
+
+{% endblock %}
+
+
+
+

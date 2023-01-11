@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Listado de Tiendas
+{% endblock %}
+
+{% block content %}
+
+    <h1>Listado de Tiendas</h1>
+    <h2>Crear nueva tienda </h2> <a href="/store/create-store/" class="btn btn-primary">Crear</a>
+    
+    {% for store in store %}
+
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+            <h5 class="card-title">{{store.name}}</h5>
+            <h5 class="card-title">{{store.address}}</h5>
+            <h5 class="card-title">{{store.city}}</h5>
+            <h5 class="card-title">{{store.region}}</h5>
+            <h5 class="card-title">{{store.postal_code}}</h5>
+
+
+           
+          
+            </div>
+        </div>
+
+
+
+    {% endfor %}
+
+{% endblock %}
+
+
+
+

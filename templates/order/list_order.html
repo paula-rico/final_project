@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Listado de Ordenes
+{% endblock %}
+
+{% block content %}
+
+    <h1>Listado de Ordenes</h1>
+    <h2>Crear nueva orden </h2> <a href="/order/create-order/" class="btn btn-primary">Crear</a>
+    {% for order in order %}
+
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+            <h5 class="card-title">{{order.client}}</h5>
+            <h5 class="card-title">{{order.product}}</h5>
+            <h5 class="card-title">{{order.creation_time}}</h5>
+
+           
+            <a href="#" class="btn btn-primary">Facturar</a>
+            </div>
+        </div>
+
+
+
+    {% endfor %}
+
+{% endblock %}
+
+
+
+
