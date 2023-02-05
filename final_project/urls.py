@@ -15,12 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from final_project.views import index
+from final_project.views import index, about_me
+from django.conf.urls.static import static
+from django.conf import settings
+
+from final_project.settings import MEDIA_ROOT, MEDIA_URL
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
+    path('about_me/', about_me),
     path('product/', include('product.urls')),
     path('order/', include('order.urls')),
     path('store/', include('store.urls')),
-]
+    path('users/', include('users.urls')),
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+

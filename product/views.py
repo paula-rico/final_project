@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views.generic import DeleteView, UpdateView
 
 from product.models import Product
 from product.forms import ProductForm
@@ -44,3 +45,16 @@ def list_products(request):
     return render(request, 'product/list_products.html', context=context)
 
 
+class ProductDeleteView(DeleteView):
+    model = Product
+    template_name = 'product/product-delete.html'
+    success_url = '/product/list-products/'
+
+
+
+
+class ProductUpdateView(UpdateView):
+    model = Product
+    fields = '__all__'
+    template_name = 'product/product-update.html'
+    success_url = '/product/list-products/'
