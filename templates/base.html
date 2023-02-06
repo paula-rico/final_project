@@ -24,9 +24,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/product/list-products/">Listado de productos</a>
                     </li>
+                    {% if request.user.is_authenticated %}
+                    {% if request.user.is_superuser %}
                     <li class="nav-item">
                         <a class="nav-link" href="/order/list-orders/">Listado de Ordenes</a>
                     </li>
+                    {% endif %}
+                    {% endif %}
                     <li class="nav-item">
                         <a class="nav-link" href="/store/list-stores/">Listado de Tiendas</a>
                     </li>

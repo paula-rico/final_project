@@ -7,7 +7,11 @@
 {% block content %}
 
     <h1>Listado de Productos</h1>
+    {% if request.user.is_authenticated %}
+        {% if request.user.is_superuser %}
     <h2>Crear nuevo producto </h2> <a href="/product/create-product/" class="btn btn-primary">Crear</a>
+    {% endif %}
+    {% endif %}
     <br>
     <br>
     <h1>Productos existentes</h1>
@@ -31,9 +35,13 @@
             <h5 class="card-title">{{product.category}}</h5>
 
            
-            <a href="#" class="btn btn-primary">Comprar</a>
+            <a href="/order/create-order/" class="btn btn-primary" product.name="{{product.name}}">Comprar</a>
+            {% if request.user.is_authenticated %}
+            {% if request.user.is_superuser %}
             <a href="/product/product-update/{{product.id}}/" class="btn btn-primary">Actualizar</a>
             <a href="/product/product-delete/{{product.id}}/" class="btn btn-danger">Borrar</a>
+            {% endif %}
+            {% endif %}
             </div>
         </div>
 </div>

@@ -7,8 +7,11 @@
 {% block content %}
 
     <h1>Listado de Tiendas</h1>
+    {% if request.user.is_authenticated %}
+    {% if request.user.is_superuser %}
     <h2>Crear nueva tienda </h2> <a href="/store/create-store/" class="btn btn-primary">Crear</a>
-    
+    {% endif %}
+    {% endif %}
     {% for store in store %}
 
 

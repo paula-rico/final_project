@@ -5,7 +5,9 @@ from order.models import Order
 from order.forms import OrderForm
 
 def create_order(request):
+   
     if request.method == 'GET':
+       
         context = {
             'form': OrderForm()
         }
@@ -14,6 +16,7 @@ def create_order(request):
 
     elif request.method == 'POST':
         form = OrderForm(request.POST)
+       
         if form.is_valid():
             Order.objects.create(
                 client=form.cleaned_data['client'],
