@@ -5,7 +5,7 @@ class Product(models.Model):
     name = models.CharField(max_length=100)
     price = models.FloatField()
     category = models.CharField(max_length=100)
-    profile_picture = models.ImageField(upload_to='product_images', null=True, blank=True)
+    profile_picture = models.ImageField(upload_to='product_images/', null=True, blank=True)
 
     def __str__(self):
         return self.name

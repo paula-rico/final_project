@@ -5,6 +5,8 @@ from django.views.generic import DeleteView, UpdateView
 from product.models import Product
 from product.forms import ProductForm
 
+
+
 def create_product(request):
     if request.method == 'GET':
         context = {
@@ -14,12 +16,13 @@ def create_product(request):
         return render(request, 'product/create_product.html', context=context)
 
     elif request.method == 'POST':
-        form = ProductForm(request.POST)
+        form = ProductForm(request.POST,request.FILES)
         if form.is_valid():
             Product.objects.create(
                 name=form.cleaned_data['name'],
                 price=form.cleaned_data['price'],
                 category=form.cleaned_data['category'],
+                profile_picture=form.cleaned_data['profile_picture']
             )
             context = {
                 'message': 'Producto creado exitosamente'
@@ -58,3 +61,5 @@ class ProductUpdateView(UpdateView):
     fields = '__all__'
     template_name = 'product/product-update.html'
     success_url = '/product/list-products/'
+
+
