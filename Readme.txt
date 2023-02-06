@@ -1,5 +1,8 @@
 Mi nombre es Paula Rico y realice un proyecto de una pagina web con productos tecnologicos
 
+Link al video
+https://drive.google.com/file/d/1qBRboJMnWuGLc-4pe8niODO798RIYiC6/view?usp=share_link
+
 Apps
 
 
